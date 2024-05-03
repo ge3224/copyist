@@ -13,6 +13,7 @@ def rsync_workspace(source_dir, destination_dir, dry_run=False):
         "-a",
         "--exclude=node_modules",
         *exclude_symlinks,
+        "--update", # Skip files that are newer on the receiving side
         source_dir + "/",  # Include trailing slash to sync the contents of the directory, not the directory itself
         destination_dir
     ]
